@@ -93,6 +93,55 @@ p{margin:0 0 .8em}
 .show .acts{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:12px}
 @media (max-width:900px){.shows{grid-template-columns:1fr}.show h3{font-size:32px}}
 
+/* ---------- 最新作品：伴唱機播放器 ---------- */
+.kara{max-width:1040px;margin:0 auto;border-radius:28px;padding:26px;background:linear-gradient(160deg,#2b2320 0%,#15110f 55%,#221a14 100%);border:2px solid #4a3b2e;box-shadow:0 30px 60px -28px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.12);color:#fff;display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:34px;align-items:center;position:relative;overflow:hidden;transition:box-shadow .5s}
+.kara:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 20% 30%,rgba(244,165,28,.22),transparent 65%);opacity:.35;transition:opacity .6s;pointer-events:none}
+.kara.playing:before{opacity:1}
+.kara.playing{box-shadow:0 30px 70px -24px rgba(244,165,28,.5),inset 0 1px 0 rgba(255,255,255,.14)}
+.kara .tray{position:relative;aspect-ratio:1;border-radius:50%;padding:14px;background:linear-gradient(145deg,#4a4038,#0f0c0a);box-shadow:inset 0 4px 12px rgba(0,0,0,.7),0 0 0 3px #5b4a3a}
+.kara .well{position:relative;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 50% 50%,#050403 60%,#17110d);box-shadow:inset 0 0 30px #000;overflow:hidden;display:grid;place-items:center}
+.disc{width:92%;aspect-ratio:1;border-radius:50%;position:relative;background:
+  radial-gradient(circle,#0b0907 0 7%,#d8d2c8 7.4% 9.5%,transparent 9.8%),
+  repeating-radial-gradient(circle,rgba(255,255,255,.0) 0 2px,rgba(255,255,255,.06) 2px 3px),
+  conic-gradient(from 20deg,#e9e4da,#8fd3ff,#f6b8ff,#fff3b0,#9dffc8,#e9e4da,#9fb4ff,#ffd0a0,#e9e4da);
+  box-shadow:0 0 0 2px rgba(255,255,255,.25),0 12px 30px rgba(0,0,0,.6);animation:kspin 2.6s linear infinite;animation-play-state:paused}
+.disc:after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 20%,rgba(255,255,255,.55) 25%,transparent 32% 70%,rgba(255,255,255,.4) 75%,transparent 82%);mix-blend-mode:overlay}
+.kara.playing .disc{animation-play-state:running}
+@keyframes kspin{to{transform:rotate(360deg)}}
+.glass{position:absolute;inset:14px;border-radius:50%;background:linear-gradient(125deg,rgba(255,255,255,.28),rgba(255,255,255,0) 38%);pointer-events:none}
+.kara .panel{display:flex;flex-direction:column;gap:20px;position:relative}
+.led{background:#0a1a10;border:2px solid #223a2b;border-radius:14px;padding:16px 20px;box-shadow:inset 0 0 18px rgba(0,0,0,.8);font-family:var(--serif)}
+.led small{display:block;font:700 20px/1.3 var(--sans);letter-spacing:.2em;color:#7dffb0;text-shadow:0 0 8px rgba(125,255,176,.7)}
+.led b{display:block;font-size:clamp(34px,5vw,52px);font-weight:900;color:#c9ffdc;text-shadow:0 0 14px rgba(125,255,176,.55);line-height:1.2;margin-top:4px}
+.led time{display:block;font:700 26px/1.3 var(--sans);color:#7dffb0;margin-top:6px;font-variant-numeric:tabular-nums}
+.eq{display:flex;align-items:flex-end;gap:5px;height:84px}
+.eq i{flex:1;min-width:4px;height:100%;border-radius:3px 3px 0 0;background:linear-gradient(to top,#2fe38a 0 55%,var(--sun) 55% 82%,#ff5a4a 82%);transform-origin:bottom;transform:scaleY(.08);opacity:.9;transition:transform .08s linear}
+.kara:not(.playing) .eq i{transform:scaleY(.08)!important}
+.kara .ctrl{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.pbtn{font:900 24px/1 var(--sans);display:inline-flex;align-items:center;gap:12px;padding:18px 32px;border-radius:999px;border:0;cursor:pointer;background:var(--sun);color:var(--ink);box-shadow:0 6px 0 #a8670a,0 12px 24px rgba(244,165,28,.35);transition:transform .1s,box-shadow .1s}
+.pbtn:active{transform:translateY(4px);box-shadow:0 2px 0 #a8670a}
+.pbtn svg{width:26px;height:26px}
+.pbtn .ic-pause,.kara.playing .pbtn .ic-play{display:none}
+.kara.playing .pbtn .ic-pause{display:block}
+.kara input[type=range]{-webkit-appearance:none;appearance:none;height:10px;border-radius:6px;background:#3a2f26;outline-offset:6px;cursor:pointer;accent-color:var(--sun)}
+.kara input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--sun);border:3px solid #fff}
+.kara input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--sun);border:3px solid #fff}
+.kara .seek{width:100%}
+.kara .vol{display:flex;align-items:center;gap:10px;font-size:20px;color:#EDE3D2}
+.kara .vol input{width:130px}
+.kara .dl{display:flex;flex-wrap:wrap;gap:12px 22px}
+.kara .dl a{color:var(--sun-2);font-size:20px;font-weight:700}
+.kara .lights{display:flex;gap:10px}
+.kara .lights i{width:14px;height:14px;border-radius:50%;background:#3a2f26}
+.kara.playing .lights i{background:#2fe38a;box-shadow:0 0 10px #2fe38a;animation:klight 1.2s ease-in-out infinite}
+.kara.playing .lights i:nth-child(2){animation-delay:.2s;background:var(--sun);box-shadow:0 0 10px var(--sun)}
+.kara.playing .lights i:nth-child(3){animation-delay:.4s;background:#ff5a4a;box-shadow:0 0 10px #ff5a4a}
+@keyframes klight{50%{opacity:.35}}
+.kara-in{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.kara-in.in{opacity:1;transform:none}
+@media (max-width:760px){.kara{grid-template-columns:1fr;padding:18px;gap:22px}.kara .tray{max-width:300px;margin:0 auto;width:100%}.kara .vol input{width:100px}}
+@media (prefers-reduced-motion:reduce){.disc{animation-duration:8s}.kara-in{opacity:1;transform:none;transition:none}.eq i{transition:none}.kara.playing .lights i{animation:none}}
+
 /* ---------- numbers as piano keys ---------- */
 .keysband{padding:56px 0 20px}
 .keyrow{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--keys);border-radius:0 0 22px 22px;overflow:hidden;background:var(--paper);position:relative}
@@ -322,7 +371,7 @@ footer .note{flex-basis:100%;color:#BFB29F;font-size:20px;margin-top:10px}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="許哲誠 回到頁首"><i aria-hidden="true"><b></b><b></b><b></b></i>許哲誠</a>
     <nav class="navkeys" aria-label="頁面導覽">
-      <a href="#shows">近期演出</a><a href="#story">鋼琴男孩</a><a href="#career">學經歷</a><a href="#skills">專長</a><a href="#life">生活事蹟</a><a href="#give">公益足跡</a><a href="#media">媒體牆</a><a href="#photos">照片牆</a><a href="#contact">聯絡</a>
+      <a href="#shows">近期演出</a><a href="#listen">最新作品</a><a href="#story">鋼琴男孩</a><a href="#career">學經歷</a><a href="#skills">專長</a><a href="#life">生活事蹟</a><a href="#give">公益足跡</a><a href="#media">媒體牆</a><a href="#photos">照片牆</a><a href="#contact">聯絡</a>
     </nav>
   </div>
 </header>
@@ -396,6 +445,65 @@ footer .note{flex-basis:100%;color:#BFB29F;font-size:20px;margin-top:10px}
     </div>
   </div>
 </section>
+
+<section class="sec alt" id="listen">
+  <div class="wrap">
+    <div class="sec-head"><div class="opus">新作</div><h2>最新作品線上搶先聽</h2><p>《永恆天堂》——按下播放，讓唱片轉起來。</p></div>
+    <div class="kara kara-in" id="kara">
+      <div class="tray" aria-hidden="true"><div class="well"><div class="disc"></div><div class="glass"></div></div></div>
+      <div class="panel">
+        <div class="led" aria-live="polite"><small id="kstate">READY</small><b>永恆天堂</b><time id="ktime">0:00 / 0:00</time></div>
+        <div class="eq" id="keq" aria-hidden="true"></div>
+        <input class="seek" id="kseek" type="range" min="0" max="1000" value="0" step="1" aria-label="播放進度">
+        <div class="ctrl">
+          <button class="pbtn" id="kplay" type="button" aria-label="播放或暫停《永恆天堂》">
+            <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5z"/></svg>
+            <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.2"/><rect x="14" y="4" width="5" height="16" rx="1.2"/></svg>
+            <span id="klabel">播放</span>
+          </button>
+          <label class="vol">音量 <input id="kvol" type="range" min="0" max="100" value="85" aria-label="音量"></label>
+          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+        <div class="dl"><a href="audio/yong-heng-tian-tang-256k.mp3" download>下載 MP3（8.8 MB）</a><a href="audio/yong-heng-tian-tang-original.wav" download>下載高音質原檔 WAV（48.5 MB）</a></div>
+      </div>
+      <audio id="kaudio" preload="metadata" src="audio/yong-heng-tian-tang-256k.mp3"></audio>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var box=document.getElementById('kara'),au=document.getElementById('kaudio'),btn=document.getElementById('kplay'),
+      lab=document.getElementById('klabel'),st=document.getElementById('kstate'),tm=document.getElementById('ktime'),
+      seek=document.getElementById('kseek'),vol=document.getElementById('kvol'),eq=document.getElementById('keq');
+  if(!box||!au)return;
+  var N=32,bars=[],i;for(i=0;i<N;i++){var b=document.createElement('i');eq.appendChild(b);bars.push(b);}
+  function fmt(t){t=isFinite(t)?t:0;var m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+(s<10?'0':'')+s;}
+  function paint(){tm.textContent=fmt(au.currentTime)+' / '+fmt(au.duration);if(!seeking&&au.duration)seek.value=Math.round(au.currentTime/au.duration*1000);}
+  var seeking=false;
+  seek.addEventListener('input',function(){seeking=true;if(au.duration)au.currentTime=seek.value/1000*au.duration;paint();});
+  seek.addEventListener('change',function(){seeking=false;});
+  vol.addEventListener('input',function(){au.volume=vol.value/100;});au.volume=.85;
+  au.addEventListener('loadedmetadata',paint);au.addEventListener('timeupdate',paint);
+  var ctx,an,data,raf,hooked=false;
+  function hook(){if(hooked)return;hooked=true;try{var AC=window.AudioContext||window.webkitAudioContext;ctx=new AC();var src=ctx.createMediaElementSource(au);an=ctx.createAnalyser();an.fftSize=128;an.smoothingTimeConstant=.78;src.connect(an);an.connect(ctx.destination);data=new Uint8Array(an.frequencyBinCount);}catch(e){an=null;}}
+  function draw(){
+    if(an){an.getByteFrequencyData(data);for(var k=0;k<N;k++){var v=data[Math.floor(k*0.7)+1]/255;bars[k].style.transform='scaleY('+Math.max(.08,v)+')';}}
+    else{var t=au.currentTime*6;for(var k=0;k<N;k++){bars[k].style.transform='scaleY('+(.15+.75*Math.abs(Math.sin(t+k*.5)))+')';}}
+    raf=requestAnimationFrame(draw);
+  }
+  function setPlaying(p){box.classList.toggle('playing',p);lab.textContent=p?'暫停':'播放';st.textContent=p?'NOW PLAYING':(au.ended?'END':'PAUSE');}
+  btn.addEventListener('click',function(){
+    if(au.paused){hook();if(ctx&&ctx.state==='suspended')ctx.resume();au.play().catch(function(){st.textContent='ERROR';});}else{au.pause();}
+  });
+  au.addEventListener('play',function(){setPlaying(true);cancelAnimationFrame(raf);draw();});
+  au.addEventListener('pause',function(){setPlaying(false);cancelAnimationFrame(raf);});
+  au.addEventListener('ended',function(){setPlaying(false);seek.value=0;});
+  au.addEventListener('waiting',function(){st.textContent='LOADING…';});
+  au.addEventListener('playing',function(){st.textContent='NOW PLAYING';});
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){box.classList.add('in');io.disconnect();}});},{threshold:.15});io.observe(box);}else{box.classList.add('in');}
+  document.addEventListener('visibilitychange',function(){if(document.hidden)cancelAnimationFrame(raf);else if(!au.paused){cancelAnimationFrame(raf);draw();}});
+})();
+</script>
 
 <div class="keysband">
   <div class="wrap">
