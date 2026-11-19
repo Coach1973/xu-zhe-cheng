@@ -77,6 +77,22 @@ p{margin:0 0 .8em}
 .onstage span{font-size:21px;color:#EDE3D2}
 .onstage a{margin-left:auto;color:var(--ink);background:var(--sun);text-decoration:none;font-weight:700;font-size:20px;padding:12px 22px;border-radius:999px}
 
+/* ---------- 近期演出 ---------- */
+.shows{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
+.show{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.show>img{width:100%;height:auto;display:block}
+.show .in{padding:26px 28px 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+.show .tag{align-self:flex-start;font:700 20px/1 var(--sans);background:var(--sun);color:var(--ink);padding:8px 16px;border-radius:999px}
+.show h3{font:900 36px/1.25 var(--serif)}
+.show h3 small{display:block;font:700 22px/1.4 var(--sans);color:var(--ink2);margin-top:4px}
+.show dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:4px 0 0}
+.show dt{font:700 20px/1.5 var(--sans);color:var(--ember)}
+.show dd{margin:0;font-size:21px;line-height:1.5;color:var(--ink)}
+.show dd s{color:var(--ink2)}
+.show p{margin:0;color:var(--ink2);font-size:21px;line-height:1.65}
+.show .acts{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){.shows{grid-template-columns:1fr}.show h3{font-size:32px}}
+
 /* ---------- numbers as piano keys ---------- */
 .keysband{padding:56px 0 20px}
 .keyrow{display:grid;grid-template-columns:repeat(4,1fr);border:3px solid var(--keys);border-radius:0 0 22px 22px;overflow:hidden;background:var(--paper);position:relative}
@@ -306,7 +322,7 @@ footer .note{flex-basis:100%;color:#BFB29F;font-size:20px;margin-top:10px}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="許哲誠 回到頁首"><i aria-hidden="true"><b></b><b></b><b></b></i>許哲誠</a>
     <nav class="navkeys" aria-label="頁面導覽">
-      <a href="#story">鋼琴男孩</a><a href="#career">學經歷</a><a href="#skills">專長</a><a href="#life">生活事蹟</a><a href="#give">公益足跡</a><a href="#media">媒體牆</a><a href="#photos">照片牆</a><a href="#contact">聯絡</a>
+      <a href="#shows">近期演出</a><a href="#story">鋼琴男孩</a><a href="#career">學經歷</a><a href="#skills">專長</a><a href="#life">生活事蹟</a><a href="#give">公益足跡</a><a href="#media">媒體牆</a><a href="#photos">照片牆</a><a href="#contact">聯絡</a>
     </nav>
   </div>
 </header>
@@ -343,6 +359,43 @@ footer .note{flex-basis:100%;color:#BFB29F;font-size:20px;margin-top:10px}
     <a href="https://www.opentix.life/event/2062388054961393665" target="_blank" rel="noopener">OPENTIX 購票 →</a>
   </div>
 </div>
+
+<section class="sec" id="shows">
+  <div class="wrap">
+    <div class="sec-head"><div class="opus">近期</div><h2>近期演出</h2><p>兩場可以親耳聽見哲誠的舞台：11 月底的《彈琴說愛》臺中場，與 12 月初的個人鋼琴彈唱音樂會。</p></div>
+    <div class="shows">
+      <article class="show">
+        <img src="images/tanqin-shuoai-poster-20261119.webp" alt="《彈琴說愛》Just Play It 海報：范德騰與許哲誠雙鋼琴同台，舞者在後方演出" width="1600" height="938" loading="lazy">
+        <div class="in">
+          <span class="tag">音樂舞台劇・巡演</span>
+          <h3>彈琴說愛<small>Just Play It　表演工作坊</small></h3>
+          <p>鋼琴・舞動・愛的共鳴。編劇／導演丁乃竺，主演范德騰與許哲誠——師徒同台，跨越時空的對話，譜出生命中的動人樂章。</p>
+          <dl>
+            <dt>11/6–11/8</dt><dd>臺北表演藝術中心 球劇場　<s>已演出</s></dd>
+            <dt>11/15</dt><dd>衛武營戲劇院　<s>已演出</s></dd>
+            <dt>11/22</dt><dd><b>臺中市中山堂</b>　即將演出</dd>
+          </dl>
+          <div class="acts"><a class="btn sun" href="https://www.opentix.life/event/2062388054961393665" target="_blank" rel="noopener">OPENTIX 購票 →</a></div>
+        </div>
+      </article>
+      <article class="show tall">
+        <img src="images/weiai-ersheng-edm-20261119.webp" alt="許哲誠《為愛而生》鋼琴彈唱音樂會 EDM：2026 年 12 月 5 日（六）14:00，新樂路 46 號之 1" width="1333" height="2000" loading="lazy">
+        <div class="in">
+          <span class="tag">個人音樂會</span>
+          <h3>為愛而生<small>許哲誠 鋼琴彈唱音樂會</small></h3>
+          <p>音樂，讓心更靠近，用旋律傳遞愛與溫暖。哲誠親自彈唱，並邀請兩位好友友情演出。</p>
+          <dl>
+            <dt>日期</dt><dd>2026 年 12 月 5 日（六）</dd>
+            <dt>時間</dt><dd>14:00</dd>
+            <dt>地點</dt><dd>新樂路 46 號之 1</dd>
+            <dt>友情演出</dt><dd>豎琴　劉貞宜<br>口琴　黃渝雯</dd>
+          </dl>
+          <div class="acts"><a class="btn" href="images/weiai-ersheng-edm-20261119.jpg" download>下載 EDM 海報</a><a class="btn sun" href="#contact">詢問・邀約</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <div class="keysband">
   <div class="wrap">
